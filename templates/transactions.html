@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Transactions · MoneyPal{% endblock %}
+{% block content %}
+<section class="card">
+  <div class="section-header">
+    <h1>Transaction History</h1>
+    <a class="btn small" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+  </div>
+  {% include 'partials_transaction_table.html' %}
+</section>
+{% endblock %}

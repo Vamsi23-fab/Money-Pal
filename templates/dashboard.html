@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard · MoneyPal{% endblock %}
+{% block content %}
+<section class="grid top-grid">
+  <div class="card balance-card">
+    <p class="eyebrow">Available Balance</p>
+    <h1>₹{{ '%.2f'|format(user.bal) }}</h1>
+    <p>{{ user.first_name }} {{ user.last_name }} · @{{ user.username }}</p>
+  </div>
+  <div class="card acid-card">
+    <h2>Transaction Safety</h2>
+    <p>Every money operation is executed inside a database transaction. On any error, MoneyPal rolls back the wallet update and transaction log.</p>
+  </div>
+</section>
+
+<section class="grid action-grid">
+  <form class="card" method="post" action="{{ url_for('deposit') }}">
+    <h2>Deposit</h2>
+    <label>Amount <input type="number" name="amount" min="0.01" step="0.01" required></label>
+    <button class="btn" type="submit">Deposit</button>
+  </form>
+
+  <form class="card" method="post" action="{{ url_for('withdraw') }}">
+    <h2>Withdraw</h2>
+    <label>Amount <input type="number" name="amount" min="0.01" step="0.01" required></label>
+    <button class="btn" type="submit">Withdraw</button>
+  </form>
+
+  <form class="card" method="post" action="{{ url_for('transfer') }}">
+    <h2>Send Money</h2>
+    <label>Receiver username <input name="receiver_username" required></label>
+    <label>Amount <input type="number" name="amount" min="0.01" step="0.01" required></label>
+    <button class="btn" type="submit">Transfer</button>
+  </form>
+</section>
+
+<section class="card">
+  <div class="section-header">
+    <h2>Recent Transactions</h2>
+    <a href="{{ url_for('transactions') }}">View all</a>
+  </div>
+  {% include 'partials_transaction_table.html' %}
+</section>
+
+<form class="delete-form" method="post" action="{{ url_for('delete_account') }}" onsubmit="return confirm('Delete your account permanently?');">
+  <button type="submit">Delete Account</button>
+</form>
+{% endblock %}

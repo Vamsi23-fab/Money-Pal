@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Register · MoneyPal{% endblock %}
+{% block content %}
+<section class="auth card narrow">
+  <h1>Create Account</h1>
+  <form method="post">
+    <label>First name <input name="first_name" required></label>
+    <label>Last name <input name="last_name" required></label>
+    <label>Username <input name="username" required autocomplete="username"></label>
+    <label>Password <input type="password" name="password" required autocomplete="new-password" minlength="6"></label>
+    <button class="btn" type="submit">Register</button>
+  </form>
+</section>
+{% endblock %}

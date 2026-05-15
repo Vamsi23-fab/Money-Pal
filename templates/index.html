@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}MoneyPal · Digital Wallet{% endblock %}
+{% block content %}
+<section class="hero card">
+  <div>
+    <p class="eyebrow">DBMS Project</p>
+    <h1>MoneyPal: A Digital Wallet Application</h1>
+    <p>Manage wallet deposits, withdrawals, user-to-user transfers, and transaction history with a MySQL-backed relational database.</p>
+    <div class="actions">
+      <a class="btn" href="{{ url_for('register') }}">Create Wallet</a>
+      <a class="btn ghost" href="{{ url_for('login') }}">Login</a>
+    </div>
+  </div>
+  <div class="acid-box">
+    <h2>ACID Preserved</h2>
+    <ul>
+      <li><strong>Atomicity:</strong> transfer debit, credit, and log commit together.</li>
+      <li><strong>Consistency:</strong> constraints prevent invalid balances and amounts.</li>
+      <li><strong>Isolation:</strong> wallet rows are locked using SELECT ... FOR UPDATE.</li>
+      <li><strong>Durability:</strong> InnoDB commits persist transaction results.</li>
+    </ul>
+  </div>
+</section>
+{% endblock %}

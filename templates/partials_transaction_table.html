@@ -1,0 +1,26 @@
+{% if transactions %}
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th><th>Type</th><th>Sender</th><th>Receiver</th><th>Amount</th><th>Status</th><th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for tx in transactions %}
+      <tr>
+        <td>#{{ tx.transaction_id }}</td>
+        <td>{{ tx.transaction_type.replace('_', ' ') }}</td>
+        <td>{{ tx.sender_username or 'Bank/System' }}</td>
+        <td>{{ tx.receiver_username or 'Cash Out' }}</td>
+        <td>₹{{ '%.2f'|format(tx.amount) }}</td>
+        <td><span class="pill">{{ tx.status }}</span></td>
+        <td>{{ tx.created_at }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<p class="muted">No transactions yet.</p>
+{% endif %}
