@@ -2,7 +2,6 @@
 
 MoneyPal is a Flask + MySQL DBMS project that demonstrates a digital wallet with user registration, login, deposits, withdrawals, user-to-user transfers, and transaction history.
 
-This package was prepared as a complete working transaction webpage based on the reference project: https://github.com/ashyx12/MoneyPal
 
 ## Main Features
 
