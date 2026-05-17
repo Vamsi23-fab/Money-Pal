@@ -54,7 +54,3 @@ MoneyPal_ACID/
     ├── css/style.css
     └── js/app.js
 ```
-
-## Quick Start
-
-See `docs/RUN_GUIDE.md` for step-by-step setup instructions.
